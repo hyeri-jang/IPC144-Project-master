@@ -1,0 +1,42 @@
+/*/////////////////////////////////////////////////////////////////////////
+                        Assignment 1 - Milestone 3
+Full Name  : HYERI JANG
+Student ID#: 115328221
+Email      : hjang34@myseneca.ca
+Section    : NAA
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
+
+
+1.
+
+int inputYearMonthDay(struct Date date[]);
+In the functions ViewAppointmentSchedule, AddAppointment, and RemoveAppointment, the user inputs the year, month, and day. Writing code to receive user input in these three functions would result in duplicate and inefficient code. To eliminate this duplication and make the code more efficient, I created the inputYearMonthDay function to receive the year, month, and day inputs. And this function calls a function to determine whether the input year is a leap year or not, and then it calculates the last day of a particular month accordingly. As a result, the user can input the dates in appropriate range for a month. This function contributes towards making the code more organized, efficient, and easy to maintain.
+
+void inputHourMin(struct Time time[]);
+In this program, the system needs to receive hour and minute values input by the user multiple times to view, add, or remove appointment information. This function receives the hour and minute inputs from the user, checks whether the time entered by the user falls within the hospital's operating hours, and determines whether the minute entered by the user is a multiple of a specified interval (30 minutes). The hospital's open time, close time, and interval can be changed at any time because they are macros. Calling this function can avoid code redundancy and increases code efficiency and maintainability.
+
+void bubbleSorting(struct ClinicData* data);
+This function was created to sort appointment information by date and time. When importing data from appointmentData.txt, the information is in random order. It becomes difficult to quickly grasp Appointment information in the 'VIEW ALL Appointments' and 'VIEW Appointments by DATE' menus when it is not organized in chronological order. To solve this problem, the function compares the date and time information of each reservation and changes the index order so that Appointments with earlier dates are output first. It is easy to use and reduces unnecessary code because it can be called and used wherever Appointments need to be looked up in chronological order.
+
+
+
+2. 
+
+This program is designed to receive user input and execute accordingly. Therefore, it is necessary to receive input from the user for various data types multiple times. In order to prevent errors, whenever user input is received, validation must be performed to ensure that the requested data type has been entered. Also, values remaining in the input buffer must be cleared after receiving the value so that an error does not occur when receiving the next input. However, writing code to perform validation each time the user inputs data or to clear the input buffer can result in redundant code. In this program, to prevent this, functions that validate codes and remove the input buffer were created for each data type in advance, and a function was called to receive input whenever user input was needed. By calling these functions, it can reduce code duplication and improve code readability, making it easier to modify and maintain.
+
+
+
+3.
+int inputYearMonthDay(struct Date date[]);
+This function is located in the clinic.c module because it is used to handle input for various operations such as viewing, adding, or removing appointment information of the clinic. Moreover, it is categorized as a USER INPUT FUNCTION because it is responsible for receiving input values from the user for year, month, and day, which are necessary to determine a valid date.
+
+void inputHourMin(struct Time time[]);
+This function is located in the clinic.c module because the values input through this function require validation based on the clinic's open and close times. Additionally, it is categorized as USER INPUT FUNCTIONS because it receives input values for the hour and minute, which are necessary to determine a valid date. 
+
+void bubbleSorting(struct ClinicData* data);
+This function is located in the clinic.c module because it was created to sort appointment information in chronological order. It is not to be used for sorting other data types, making it specific to this module. It is also categorized as UTILITY FUNCTIONS because it performs a utility operation that is not directly related to user input or output. Its purpose is to sort an array of appointment data based on the date and time of each appointment.
